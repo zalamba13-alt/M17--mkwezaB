@@ -1,0 +1,27 @@
+{
+  "theme": "ayu-dark.sublime-theme",
+  "color_scheme": "Packages/ayu/ayu-dark.sublime-color-scheme",
+  "draw_white_space": "selection",
+  "font_size": 11,
+  "font_options": ["subpixel_antialiased"],
+  "line_padding_bottom": 3,
+  "line_padding_top": 3,
+  "scroll_past_end": true,
+  "smooth_scroll": true,
+  "tab_size": 4,
+  "translate_tabs_to_spaces": true,
+  "word_wrap": "auto",
+  "auto_complete_delay": 0,
+  "auto_complete_trailing_symbols": true,
+  "auto_complete_cycle": true,
+  "mini_auto_complete": true,
+  
+  "show_navigation_bar": true,
+  "ui_separator": true,
+  "ui_native_titlebar": true,
+  "ignored_packages":
+  [
+ 		"Vintage",
+  ],
+  "index_files": true,
+}

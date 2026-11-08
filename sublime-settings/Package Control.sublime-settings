@@ -1,0 +1,26 @@
+{
+	"installed_packages":
+	[
+		"auto-save",
+		"AutoFileName",
+		"ayu",
+		"BracketHighlighter",
+		"Color Highlighter",
+		"Debugger",
+		"GitGutter",
+		"GitHub File Fetcher",
+		"LSP",
+		"LSP-css",
+		"LSP-html",
+		"LSP-pyright",
+		"LSP-typescript",
+		"MultiEditUtils",
+		"Package Control",
+		"RainbowBrackets",
+		"SideBarEnhancements",
+		"Terminus",
+	],
+	"in_process_packages":
+	[
+	],
+}
