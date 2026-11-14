@@ -129,27 +129,39 @@
         <h3 class="subheading">Certificates</h3>
         <div class="certificates-grid">
           <div class="certificate-card">
-            <div class="cert-icon" aria-hidden="true">🎓</div>
+            <button type="button" class="cert-thumb" data-cert-img="assets/certificate.svg" data-cert-title="Web Development Fundamentals — FreeCodeCamp, 2025" aria-label="View certificate: Web Development Fundamentals">
+              <img src="assets/certificate.svg" alt="Certificate preview: Web Development Fundamentals" loading="lazy">
+              <span class="cert-zoom" aria-hidden="true">🔍</span>
+            </button>
             <div class="cert-body">
               <h4>Web Development Fundamentals</h4>
               <span class="issuer">FreeCodeCamp</span>
               <span class="date">2025</span>
+              <a class="verify-link" href="#" target="_blank" rel="noopener noreferrer">Verify <span aria-hidden="true">↗</span></a>
             </div>
           </div>
           <div class="certificate-card">
-            <div class="cert-icon" aria-hidden="true">💻</div>
+            <button type="button" class="cert-thumb" data-cert-img="assets/certificate.svg" data-cert-title="JavaScript Essentials — Coursera, 2024" aria-label="View certificate: JavaScript Essentials">
+              <img src="assets/certificate.svg" alt="Certificate preview: JavaScript Essentials" loading="lazy">
+              <span class="cert-zoom" aria-hidden="true">🔍</span>
+            </button>
             <div class="cert-body">
               <h4>JavaScript Essentials</h4>
               <span class="issuer">Coursera</span>
               <span class="date">2024</span>
+              <a class="verify-link" href="#" target="_blank" rel="noopener noreferrer">Verify <span aria-hidden="true">↗</span></a>
             </div>
           </div>
           <div class="certificate-card">
-            <div class="cert-icon" aria-hidden="true">📊</div>
+            <button type="button" class="cert-thumb" data-cert-img="assets/certificate.svg" data-cert-title="Introduction to Python — edX, 2024" aria-label="View certificate: Introduction to Python">
+              <img src="assets/certificate.svg" alt="Certificate preview: Introduction to Python" loading="lazy">
+              <span class="cert-zoom" aria-hidden="true">🔍</span>
+            </button>
             <div class="cert-body">
               <h4>Introduction to Python</h4>
               <span class="issuer">edX</span>
               <span class="date">2024</span>
+              <a class="verify-link" href="#" target="_blank" rel="noopener noreferrer">Verify <span aria-hidden="true">↗</span></a>
             </div>
           </div>
         </div>
@@ -213,6 +225,15 @@
       </div>
     </section>
   </main>
+
+  <div class="lightbox" id="certLightbox" hidden>
+    <div class="lightbox-backdrop" data-lightbox-close></div>
+    <figure class="lightbox-content">
+      <img id="lightboxImg" src="" alt="">
+      <figcaption id="lightboxCaption"></figcaption>
+      <button type="button" class="lightbox-close" data-lightbox-close aria-label="Close">×</button>
+    </figure>
+  </div>
 
   <button type="button" id="scrollTop" class="scroll-top" aria-label="Back to top">↑</button>
 
