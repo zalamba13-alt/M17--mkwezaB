@@ -96,4 +96,48 @@ document.addEventListener('DOMContentLoaded', () => {
       closeLightbox();
     }
   });
+
+  // Certificate carousel
+  const carousel = document.getElementById('certCarousel');
+  if (carousel) {
+    const track = carousel.querySelector('.cert-track');
+    const cards = Array.from(track.children);
+    const dotsWrap = carousel.querySelector('.cert-dots');
+    let currentIndex = 0;
+
+    if (prefersReducedMotion) {
+      track.style.transition = 'none';
+    }
+
+    cards.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'cert-dot';
+      dot.setAttribute('aria-label', `Go to certificate ${i + 1}`);
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+    const dots = Array.from(dotsWrap.children);
+
+    const goTo = (index) => {
+      currentIndex = Math.max(0, Math.min(index, cards.length - 1));
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+    };
+
+    carousel.querySelector('.cert-prev').addEventListener('click', () => goTo(currentIndex - 1));
+    carousel.querySelector('.cert-next').addEventListener('click', () => goTo(currentIndex + 1));
+
+    carousel.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        goTo(currentIndex - 1);
+      } else if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        goTo(currentIndex + 1);
+      }
+    });
+
+    goTo(0);
+  }
 });

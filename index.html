@@ -127,7 +127,9 @@
 
       <div class="certificates">
         <h3 class="subheading">Certificates</h3>
-        <div class="certificates-grid">
+        <div class="cert-carousel" id="certCarousel">
+          <div class="cert-viewport">
+            <div class="cert-track">
           <div class="certificate-card">
             <button type="button" class="cert-thumb" data-cert-img="assets/certificate.svg" data-cert-title="Web Development Fundamentals — FreeCodeCamp, 2025" aria-label="View certificate: Web Development Fundamentals">
               <img src="assets/certificate.svg" alt="Certificate preview: Web Development Fundamentals" loading="lazy">
@@ -164,6 +166,11 @@
               <a class="verify-link" href="#" target="_blank" rel="noopener noreferrer">Verify <span aria-hidden="true">↗</span></a>
             </div>
           </div>
+            </div>
+          </div>
+          <button type="button" class="cert-nav cert-prev" aria-label="Previous certificate">←</button>
+          <button type="button" class="cert-nav cert-next" aria-label="Next certificate">→</button>
+          <div class="cert-dots" role="tablist" aria-label="Certificate slides"></div>
         </div>
       </div>
     </section>
