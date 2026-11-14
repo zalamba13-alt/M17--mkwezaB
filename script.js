@@ -140,4 +140,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     goTo(0);
   }
+
+  // Active nav link on scroll
+  const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+  const spySections = navLinks
+    .map((link) => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  if (spySections.length && 'IntersectionObserver' in window) {
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach((link) => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+
+    spySections.forEach((section) => spy.observe(section));
+  }
 });

@@ -351,17 +351,17 @@ body {
 
 /* Certificates */
 .certificates {
-  max-width: 750px;
-  margin: 3.5rem auto 0;
+  max-width: 560px;
+  margin: 2.75rem auto 0;
 }
 
 .subheading {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--primary-light);
-  margin-bottom: 1.4rem;
+  margin-bottom: 1rem;
 }
 
 .cert-carousel {
@@ -388,8 +388,8 @@ body {
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: rgba(15, 15, 26, 0.72);
@@ -420,7 +420,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
-  margin-top: 1.2rem;
+  margin-top: 0.9rem;
 }
 
 .cert-dot {
@@ -465,7 +465,7 @@ body {
   position: relative;
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border: none;
   border-radius: 0;
@@ -529,7 +529,7 @@ body {
 .cert-body {
   position: relative;
   margin-top: -2px;
-  padding: 1.15rem 1.4rem 1.4rem;
+  padding: 0.95rem 1.1rem 1.15rem;
   background: var(--bg-card);
 }
 
@@ -1259,17 +1259,21 @@ footer {
 /* Portfolio refinement */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 32px;
+  scroll-padding-top: 88px;
 }
 
 .site-nav {
-  min-height: 76px;
+  min-height: 68px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
-  z-index: 2;
+  position: sticky;
+  top: 0;
+  z-index: 20;
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(15, 15, 26, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .nav-brand {
@@ -1295,11 +1299,33 @@ html {
   color: var(--text-muted);
   font-size: 0.92rem;
   font-weight: 500;
-  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color 0.2s ease;
 }
 
-.nav-links a:hover {
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--primary-light);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
   color: var(--text);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
 }
 
 .nav-links .nav-contact {
@@ -1309,7 +1335,12 @@ html {
   border-radius: 999px;
 }
 
-.nav-links .nav-contact:hover {
+.nav-links .nav-contact::after {
+  display: none;
+}
+
+.nav-links .nav-contact:hover,
+.nav-links .nav-contact.active {
   border-color: var(--primary-light);
   background: rgba(99, 102, 241, 0.12);
 }
