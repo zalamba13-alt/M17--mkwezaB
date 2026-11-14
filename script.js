@@ -34,9 +34,18 @@ document.addEventListener('DOMContentLoaded', () => {
     item.style.transitionDelay = `${i * 0.12}s`;
   });
 
-  // Stagger projects
-  document.querySelectorAll('.project-card').forEach((card, i) => {
-    card.style.transitionDelay = `${i * 0.15}s`;
+  // Scroll to top
+  const scrollTop = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      scrollTop.classList.add('show');
+    } else {
+      scrollTop.classList.remove('show');
+    }
+  }, { passive: true });
+
+  scrollTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
   console.log('✨ Premium resume loaded');
