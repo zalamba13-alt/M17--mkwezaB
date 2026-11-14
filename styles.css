@@ -349,6 +349,67 @@ body {
   color: var(--text-muted);
 }
 
+/* Certificates */
+.certificates {
+  max-width: 750px;
+  margin: 3.5rem auto 0;
+}
+
+.subheading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary-light);
+  margin-bottom: 1.4rem;
+}
+
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.certificate-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.4rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.025));
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 20px;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.certificate-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.cert-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.cert-body h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.cert-body .issuer {
+  display: block;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.cert-body .date {
+  font-size: 0.82rem;
+  margin-top: 0.25rem;
+}
+
 /* Projects */
 .projects-grid {
   display: grid;
@@ -939,6 +1000,74 @@ footer {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Print / save as PDF: light page, no motion, nothing hidden */
+@media print {
+  :root {
+    --text: #111827;
+    --text-muted: #374151;
+    --border: rgba(0, 0, 0, 0.18);
+  }
+
+  body {
+    background: #fff;
+    color: #111827;
+  }
+
+  .bg-glow,
+  .bg-glow-2,
+  .site-nav,
+  .scroll-top,
+  .project-preview,
+  .hero-links,
+  .contact-buttons {
+    display: none !important;
+  }
+
+  .reveal,
+  .reveal-right,
+  .timeline-item,
+  .project-card,
+  .skill-tag,
+  .glass-card {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .hero {
+    min-height: 0;
+    padding: 0 0 24px;
+  }
+
+  .hero-content {
+    animation: none !important;
+  }
+
+  .section {
+    padding: 22px 0;
+    page-break-inside: avoid;
+  }
+
+  .glass-card,
+  .project-card,
+  .skill-tag {
+    background: none !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .project-links a,
+  .contact-location {
+    color: #111827;
+  }
+
+  a {
+    text-decoration: none;
   }
 }
 
