@@ -372,10 +372,9 @@ body {
 
 .certificate-card {
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1.4rem;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.025));
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg-card);
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 20px;
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease, box-shadow 0.35s ease;
@@ -389,16 +388,27 @@ body {
 
 .cert-thumb {
   position: relative;
-  flex-shrink: 0;
-  width: 92px;
-  aspect-ratio: 10 / 7;
-  border-radius: 12px;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: none;
+  border-radius: 0;
   background: var(--bg-card);
   cursor: pointer;
   padding: 0;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-thumb::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 55%;
+  background: linear-gradient(to bottom, transparent, var(--bg-card));
+  pointer-events: none;
 }
 
 .cert-thumb img {
@@ -442,7 +452,10 @@ body {
 }
 
 .cert-body {
-  min-width: 0;
+  position: relative;
+  margin-top: -2px;
+  padding: 1.15rem 1.4rem 1.4rem;
+  background: var(--bg-card);
 }
 
 .cert-body .verify-link {
