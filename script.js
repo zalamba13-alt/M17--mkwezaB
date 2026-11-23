@@ -87,6 +87,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  const heroAvatar = document.querySelector('.hero-avatar');
+  if (heroAvatar) {
+    heroAvatar.addEventListener('click', () => {
+      openLightbox(heroAvatar.dataset.lightboxImg, heroAvatar.dataset.lightboxTitle);
+    });
+  }
+
   document.querySelectorAll('[data-lightbox-close]').forEach((el) => {
     el.addEventListener('click', closeLightbox);
   });
